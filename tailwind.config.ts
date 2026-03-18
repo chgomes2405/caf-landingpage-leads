@@ -60,8 +60,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        whatsapp: "hsl(var(--whatsapp))",
+      },
+      boxShadow: {
+        card: "var(--shadow-card)",
       },
       borderRadius: {
+        "2xl": "1.5rem",
+        xl: "0.75rem",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
