@@ -5,6 +5,7 @@ import { trackWhatsAppClick } from "@/lib/tracking";
 import heroBg from "@/assets/hero-bg.webp";
 import { z } from "zod";
 import { toast } from "sonner";
+import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE, WHATSAPP_URL } from "@/lib/constants";
 
 const formSchema = z.object({
   name: z.string().min(3, "Por favor, digite seu nome e sobrenome."),
@@ -18,9 +19,6 @@ const fadeInUp = {
   viewport: { once: true },
   transition: { duration: 0.5, ease: [0.2, 0, 0, 1] },
 };
-
-const WHATSAPP_NUMBER = "5516992991090";
-const WHATSAPP_MESSAGE = "Olá, gostaria de mais informações sobre os serviços de dedetização";
 
 const HeroSection = () => {
   const [name, setName] = useState("");
@@ -79,7 +77,7 @@ const HeroSection = () => {
               Solicitar orçamento gratuito
             </a>
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Iniciar conversa com atendente pelo WhatsApp"

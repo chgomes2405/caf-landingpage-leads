@@ -1,13 +1,11 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { trackWhatsAppClick } from "@/lib/tracking";
-
-const WHATSAPP_NUMBER = "5516992991090";
-const WHATSAPP_MESSAGE = "Olá, gostaria de mais informações sobre os serviços de dedetização";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 const WhatsAppFAB = () => (
   <motion.a
-    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+    href={WHATSAPP_URL}
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Botão flutuante para contato online com especialista via WhatsApp"

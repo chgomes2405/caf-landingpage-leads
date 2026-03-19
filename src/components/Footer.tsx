@@ -1,8 +1,6 @@
 import { MapPin, Clock, FileText, Phone } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
-
-const WHATSAPP_NUMBER = "5516992991090";
-const WHATSAPP_MESSAGE = "Olá, gostaria de conversar sobre os serviços de dedetização";
+import { WHATSAPP_NUMBER, WHATSAPP_URL } from "@/lib/constants";
 
 const scrollTo = (id: string) => (e: React.MouseEvent) => {
   e.preventDefault();
@@ -45,7 +43,7 @@ const Footer = () => (
           <div className="flex items-center gap-3 mt-4">
             <Phone className="w-5 h-5 shrink-0 text-primary" />
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick("footer_phone_link")}
@@ -65,7 +63,7 @@ const Footer = () => (
             <li><a href="#faq" onClick={scrollTo("faq")} className="hover:text-primary transition-colors cursor-pointer">Dúvidas Frequentes</a></li>
             <li>
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("footer_quick_link")}

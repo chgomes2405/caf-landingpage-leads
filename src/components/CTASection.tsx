@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Phone, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -8,9 +9,6 @@ const fadeInUp = {
   viewport: { once: true },
   transition: { duration: 0.5, ease: [0.2, 0, 0, 1] },
 };
-
-const WHATSAPP_NUMBER = "5516992991090";
-const WHATSAPP_MESSAGE = "Olá, gostaria de mais informações sobre os serviços de dedetização";
 
 interface CTASectionProps {
   variant?: "mid" | "final";
@@ -44,13 +42,18 @@ const CTASection = ({ variant = "mid" }: CTASectionProps) => {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="#orcamento"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("orcamento");
+                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
+              }}
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg cursor-pointer"
             >
               <Phone className="w-5 h-5" />
               {isFinal ? "Solicitar orçamento agora" : "Agendar atendimento"}
             </a>
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Falar agora mesmo no WhatsApp"
