@@ -21,7 +21,7 @@ const SolutionSection = () => (
   <section className="py-24 bg-card">
     <div className="max-w-7xl mx-auto px-6">
       <motion.div {...fadeInUp} className="text-center mb-16">
-        <span className="text-xs font-semibold tracking-widest uppercase text-accent mb-3 block">
+        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
           Por que a CAF?
         </span>
         <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4">
@@ -37,7 +37,8 @@ const SolutionSection = () => (
             key={s.title}
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: i * 0.08 }}
-            className="flex gap-4 p-6 rounded-2xl bg-background shadow-card hover:-translate-y-1 transition-transform duration-200"
+            whileHover={{ y: -5, transition: { type: "tween", duration: 0.15 } }}
+            className="flex gap-4 p-6 rounded-2xl bg-background shadow-card"
           >
             <div className="w-10 h-10 shrink-0 bg-accent/10 rounded-xl flex items-center justify-center">
               <s.icon className="w-5 h-5 text-accent" />

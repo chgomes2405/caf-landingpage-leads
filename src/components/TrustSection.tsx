@@ -32,6 +32,7 @@ const TrustSection = () => (
             key={b.title}
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: i * 0.1 }}
+            whileHover={{ y: -5, transition: { type: "tween", duration: 0.15 } }}
             className="text-center p-6"
           >
             <div className="w-16 h-16 bg-primary-foreground/10 rounded-2xl mx-auto mb-4 flex items-center justify-center">

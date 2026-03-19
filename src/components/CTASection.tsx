@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Phone, MessageCircle } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -8,7 +9,8 @@ const fadeInUp = {
   transition: { duration: 0.5, ease: [0.2, 0, 0, 1] },
 };
 
-const WHATSAPP_NUMBER = "5500000000000";
+const WHATSAPP_NUMBER = "5516992991090";
+const WHATSAPP_MESSAGE = "Olá, gostaria de mais informações sobre os serviços de dedetização";
 
 interface CTASectionProps {
   variant?: "mid" | "final";
@@ -48,9 +50,11 @@ const CTASection = ({ variant = "mid" }: CTASectionProps) => {
               {isFinal ? "Solicitar orçamento agora" : "Agendar atendimento"}
             </a>
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Falar agora mesmo no WhatsApp"
+              onClick={() => trackWhatsAppClick(`cta_${variant}_button`)}
               className="inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-accent-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg"
             >
               <MessageCircle className="w-5 h-5" />

@@ -9,7 +9,7 @@ import WhatsAppFAB from "@/components/WhatsAppFAB";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <>
+  <div className="min-h-screen bg-background">
     <HeroSection />
     <PainPointsSection />
     <SolutionSection />
@@ -20,7 +20,7 @@ const Index = () => (
     <CTASection variant="final" />
     <Footer />
     <WhatsAppFAB />
-  </>
+  </div>
 );
 
 export default Index;

@@ -30,7 +30,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section className="py-24 bg-background">
+  <section id="depoimentos" className="py-24 bg-background">
     <div className="max-w-7xl mx-auto px-6">
       <motion.div {...fadeInUp} className="text-center mb-16">
         <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
@@ -46,6 +46,7 @@ const TestimonialsSection = () => (
             key={t.name}
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: i * 0.1 }}
+            whileHover={{ y: -5, transition: { type: "tween", duration: 0.15 } }}
             className="p-8 bg-card rounded-2xl shadow-card"
           >
             <div className="flex gap-1 mb-4">

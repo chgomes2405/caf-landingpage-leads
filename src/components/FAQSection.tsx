@@ -37,7 +37,7 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section className="py-24 bg-background">
+  <section id="faq" className="py-24 bg-background">
     <div className="max-w-3xl mx-auto px-6">
       <motion.div {...fadeInUp} className="text-center mb-12">
         <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
@@ -53,7 +53,7 @@ const FAQSection = () => (
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="bg-card rounded-2xl shadow-card px-6 border-none"
+              className="bg-card rounded-2xl shadow-card px-6 border-none hover:-translate-y-1 transition-transform duration-150"
             >
               <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5">
                 {faq.q}

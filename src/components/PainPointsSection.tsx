@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Bug, Rat, TreeDeciduous, Antenna } from "lucide-react";
+import { Bug, Rat } from "lucide-react";
+import { AntIcon } from "@/components/icons/AntIcon";
+import { TermiteIcon } from "@/components/icons/TermiteIcon";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -20,19 +22,19 @@ const pains = [
     description: "Ratos contaminam alimentos e podem causar doenças graves como leptospirose.",
   },
   {
-    icon: TreeDeciduous,
+    icon: TermiteIcon,
     title: "Cupins destruindo seus móveis?",
     description: "Cupins causam danos silenciosos e irreversíveis em madeiras e estruturas.",
   },
   {
-    icon: Antenna,
+    icon: AntIcon,
     title: "Formigas invadindo sua cozinha?",
     description: "Formigas contaminam alimentos e indicam problemas de higiene no ambiente.",
   },
 ];
 
 const PainPointsSection = () => (
-  <section className="py-24 bg-background">
+  <section id="problemas" className="py-24 bg-background">
     <div className="max-w-7xl mx-auto px-6">
       <motion.div {...fadeInUp} className="text-center mb-16">
         <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
@@ -51,7 +53,8 @@ const PainPointsSection = () => (
             key={pain.title}
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: i * 0.1 }}
-            className="p-8 bg-card rounded-2xl shadow-card hover:-translate-y-1 transition-transform duration-200"
+            whileHover={{ y: -5, transition: { type: "tween", duration: 0.15 } }}
+            className="p-8 bg-card rounded-2xl shadow-card"
           >
             <div className="w-12 h-12 bg-primary/10 rounded-xl mb-4 flex items-center justify-center">
               <pain.icon className="w-6 h-6 text-primary" />
