@@ -1,4 +1,4 @@
-import { MapPin, Clock, FileText, Phone, Heart } from "lucide-react";
+import { MapPin, Clock, FileText, Phone, Heart, Instagram, Mail, Facebook } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { WHATSAPP_NUMBER, WHATSAPP_URL, COMPANY_INFO } from "@/lib/constants";
 
@@ -7,7 +7,7 @@ import { scrollToElement } from "@/lib/utils";
 const Footer = () => (
   <footer className="bg-foreground text-primary-foreground/60 py-16 border-t border-border/10">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         {/* Coluna 1: Marca e Endereço */}
         <div className="space-y-4">
           <div className="flex items-center gap-3 mb-6">
@@ -69,6 +69,38 @@ const Footer = () => (
               </a>
             </li>
           </ul>
+        </div>
+
+        {/* Coluna 4: Redes Sociais */}
+        <div className="space-y-4">
+          <h3 className="text-primary-foreground font-bold tracking-wide uppercase mb-6">Conecte-se</h3>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={COMPANY_INFO.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-primary-foreground/10 hover:bg-primary text-primary-foreground transition-all duration-300 hover:scale-105"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href={`mailto:${COMPANY_INFO.email}`}
+              aria-label="E-mail"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-primary-foreground/10 hover:bg-primary text-primary-foreground transition-all duration-300 hover:scale-105"
+            >
+              <Mail className="w-5 h-5" />
+            </a>
+            <a
+              href={COMPANY_INFO.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-primary-foreground/10 hover:bg-primary text-primary-foreground transition-all duration-300 hover:scale-105"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </div>
 
