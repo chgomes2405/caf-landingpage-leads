@@ -1,14 +1,20 @@
 import { motion } from "framer-motion";
 import { Phone, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
-import { WHATSAPP_URL } from "@/lib/constants";
+import { WHATSAPP_URL, WHATSAPP_NUMBER } from "@/lib/constants";
+import { scrollToElement } from "@/lib/utils";
+import { fadeInUp } from "@/lib/animations";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5, ease: [0.2, 0, 0, 1] },
-};
+const formSchema = z.object({
+  name: z.string().min(3, "Por favor, digite seu nome e sobrenome."),
+  phone: z.string().min(14, "O telefone deve conter o DDD e os 9 dígitos."),
+  problem: z.string().min(1, "Selecione o tipo de problema que precisamos resolver."),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 interface CTASectionProps {
   variant?: "mid" | "final";
@@ -17,8 +23,25 @@ interface CTASectionProps {
 const CTASection = ({ variant = "mid" }: CTASectionProps) => {
   const isFinal = variant === "final";
 
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  });
+
+  const onSubmit = (data: FormData) => {
+    trackWhatsAppClick("final_form_submit");
+    const msg = encodeURIComponent(
+      `Olá! Meu nome é ${data.name}, telefone ${data.phone}. Preciso de ajuda com: ${data.problem}`
+    );
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+  };
+
   return (
-    <section className={`py-24 ${isFinal ? "bg-foreground" : "bg-card"}`}>
+    <section id={isFinal ? "orcamento" : undefined} className={`py-24 ${isFinal ? "bg-foreground" : "bg-card"}`}>
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div {...fadeInUp}>
           <h2
@@ -36,34 +59,94 @@ const CTASection = ({ variant = "mid" }: CTASectionProps) => {
             }`}
           >
             {isFinal
-              ? "Solicite seu orçamento gratuito e tenha a tranquilidade que você merece."
+              ? "Preencha o formulário abaixo para agendar um atendimento rápido."
               : "Cada dia que passa, o problema se agrava. Fale com nossos especialistas agora."}
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#orcamento"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("orcamento");
-                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
-              }}
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg cursor-pointer"
+
+          {!isFinal ? (
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="#orcamento"
+                onClick={scrollToElement("orcamento")}
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg cursor-pointer"
+              >
+                <Phone className="w-5 h-5" />
+                Agendar atendimento
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Falar agora mesmo no WhatsApp"
+                onClick={() => trackWhatsAppClick(`cta_${variant}_button`)}
+                className="inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-accent-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Falar com Especialista
+              </a>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="bg-white rounded-2xl shadow-2xl p-8 space-y-5 text-left max-w-xl mx-auto mt-8 relative"
             >
-              <Phone className="w-5 h-5" />
-              {isFinal ? "Solicitar orçamento agora" : "Agendar atendimento"}
-            </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Falar agora mesmo no WhatsApp"
-              onClick={() => trackWhatsAppClick(`cta_${variant}_button`)}
-              className="inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-accent-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Falar com Especialista
-            </a>
-          </div>
+              <div className="space-y-1">
+                <input
+                  type="text"
+                  placeholder="Seu nome"
+                  aria-label="Digite seu nome completo"
+                  maxLength={100}
+                  className={`w-full h-12 bg-secondary border-transparent rounded-xl px-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 ${errors.name ? 'focus:ring-destructive ring-2 ring-destructive' : 'focus:ring-primary'}`}
+                  {...register("name")}
+                />
+                {errors.name && <p className="text-destructive text-xs font-medium pl-1">{errors.name.message}</p>}
+              </div>
+
+              <div className="space-y-1">
+                <input
+                  type="tel"
+                  placeholder="Seu telefone (com DDD)"
+                  aria-label="Digite seu telefone com DDD"
+                  maxLength={15}
+                  className={`w-full h-12 bg-secondary border-transparent rounded-xl px-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 ${errors.phone ? 'focus:ring-destructive ring-2 ring-destructive' : 'focus:ring-primary'}`}
+                  {...register("phone", {
+                    onChange: (e) => {
+                      let v = e.target.value.replace(/\D/g, "");
+                      if (v.length > 11) v = v.substring(0, 11);
+                      if (v.length > 2) v = `(${v.substring(0, 2)}) ${v.substring(2)}`;
+                      if (v.length > 10) v = `${v.substring(0, 10)}-${v.substring(10)}`;
+                      setValue("phone", v, { shouldValidate: true });
+                    }
+                  })}
+                />
+                {errors.phone && <p className="text-destructive text-xs font-medium pl-1">{errors.phone.message}</p>}
+              </div>
+
+              <div className="space-y-1">
+                <select
+                  aria-label="Selecione o tipo de problema de praga que deseja combater"
+                  className={`w-full h-12 bg-secondary border-transparent rounded-xl px-4 text-foreground focus:outline-none focus:ring-2 ${errors.problem ? 'focus:ring-destructive ring-2 ring-destructive' : 'focus:ring-primary'}`}
+                  {...register("problem")}
+                >
+                  <option value="">Tipo de problema</option>
+                  <option value="Baratas">Baratas</option>
+                  <option value="Ratos">Ratos</option>
+                  <option value="Cupins">Cupins</option>
+                  <option value="Formigas">Formigas</option>
+                  <option value="Mosquitos">Mosquitos</option>
+                  <option value="Outro">Outro</option>
+                </select>
+                {errors.problem && <p className="text-destructive text-xs font-medium pl-1">{errors.problem.message}</p>}
+              </div>
+
+              <button
+                type="submit"
+                className="w-full h-12 mt-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg"
+              >
+                Solicitar Orçamento Grátis
+              </button>
+            </form>
+          )}
         </motion.div>
       </div>
     </section>
