@@ -14,7 +14,7 @@ export const COMPANY_INFO = {
     weekdays: "Segunda a Sexta: 08h às 18h",
     saturdays: "Sábados: 08h às 12h"
   },
-  email: "cafsaneamentoambiental@gmail.com",
+  email: "caf.saudeambiental@gmail.com",
   instagram: "https://www.instagram.com/cafsaudeambiental?igsh=NnE1c3lxaXo0bGNy",
   facebook: "https://www.facebook.com/cafcontroledepragas"
 };
