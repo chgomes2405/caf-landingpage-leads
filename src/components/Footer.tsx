@@ -11,7 +11,7 @@ const Footer = () => (
         {/* Coluna 1: Marca e Endereço */}
         <div className="space-y-4">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/Logo CAF Saúde Ambiental.png" alt="Logotipo CAF Saúde Ambiental" className="w-12 h-12 object-contain bg-white rounded-full p-1" />
+            <img src="/logo.png" alt="Logotipo CAF Saúde Ambiental" className="w-12 h-12 object-contain bg-white rounded-full p-1" />
             <span className="text-lg font-bold text-primary-foreground uppercase tracking-widest">
               CAF Saúde Ambiental
             </span>
