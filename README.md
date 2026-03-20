@@ -44,5 +44,11 @@ npm run build
 
 Uma pasta minimalista e minificada em código de máquina web chamada `dist` nascerá no seu projeto, ela terá tudo compiladíssimo em HTML e JS puros. Basta arrastar a pasta `dist` inteira pro painel da Hostgator, Vercel ou cPanel / Locaweb da vida.
 
+## ☁️ Hospedagem Otimizada na Vercel
+
+O projeto foi preparado detalhadamente para entrega na nuvem da **Vercel** através da integração do repositório. Para isso, os seguintes arquivos arquiteturais já estão na raiz do projeto:
+- **`vercel.json`**: Força o servidor a carregar as rotas (`SPA Rewrites`) corretamente para não causar "Error 404", e injeta os _Security Headers_ (Cabeçalhos de Segurança Bancária do navegador) que bloqueiam tentativas de clonagem do site (`X-Frame-Options: DENY`) e impulsionam conexão encriptada (HSTS).
+- **`.npmrc`**: Regula nativamente a severidade da compilação moderna Node na Vercel, ativando `legacy-peer-deps=true` e impedindo que o deploy *"quebre a build"* por rigor de versão nas bibliotecas utilitárias de UI.
+
 ---
 Feito com ❤️ por **Carlos**. Reflexo de um setup ágil com performance web de alto padrão para ambientes corporativos reais.
