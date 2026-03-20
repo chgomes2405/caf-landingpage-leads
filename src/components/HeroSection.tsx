@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="relative max-w-4xl mx-auto px-6 py-24 w-full flex flex-col items-center text-center justify-center mt-8">
         <motion.div {...fadeInUp} className="text-primary-foreground flex flex-col items-center">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/Logo CAF Saúde Ambiental.png" alt="Logotipo CAF Saúde Ambiental" className="w-16 h-16 object-contain bg-white rounded-full p-1 shadow-xl" />
+            <img src="/logo.png" alt="Logotipo CAF Saúde Ambiental" className="w-16 h-16 object-contain bg-white rounded-full p-1 shadow-xl" />
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary">
               CAF Saúde Ambiental
             </span>
