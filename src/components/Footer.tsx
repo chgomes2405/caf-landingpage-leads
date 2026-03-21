@@ -107,7 +107,7 @@ const Footer = () => (
       <div className="pt-8 border-t border-primary-foreground/10 text-center text-xs flex flex-col md:flex-row justify-between items-center gap-4">
         <p>© {new Date().getFullYear()} CAF Saúde Ambiental. Todos os direitos reservados.</p>
         <p className="flex items-center justify-center gap-1.5 font-medium text-primary-foreground/80">
-          Feito com <Heart className="w-4 h-4 text-red-500 animate-pulse" strokeWidth={3} /> por <a href="https://www.linkedin.com/in/chgomes2405" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Carlos</a>
+          Feito com <Heart className="w-4 h-4 text-red-500 animate-pulse" strokeWidth={3} /> por <a href="https://www.linkedin.com/in/chgomes2405" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer underline underline-offset-2">Carlos Gomes</a>
         </p>
       </div>
     </div>
