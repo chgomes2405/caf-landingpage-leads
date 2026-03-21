@@ -4,11 +4,11 @@ import { Shield, Zap, Leaf, Building, Users, CheckCircle } from "lucide-react";
 import { fadeInUp } from "@/lib/animations";
 
 const solutions = [
-  { icon: Users, title: "Equipe técnica especializada", desc: "Profissionais treinados e certificados para cada tipo de praga." },
+  { icon: Users, title: "Equipe técnica especializada", desc: "Equipe especializada em controle de pragas, com profissionais treinados e certificados." },
   { icon: Zap, title: "Atendimento rápido", desc: "Resposta em até 30 minutos e agendamento no mesmo dia." },
   { icon: Leaf, title: "Produtos seguros e regulamentados", desc: "Produtos aprovados pela Anvisa, sem cheiro e seguros para a família." },
   { icon: Shield, title: "Garantia no serviço", desc: "Se o problema persistir dentro do prazo de garantia, voltamos sem custo adicional." },
-  { icon: CheckCircle, title: "Soluções eficazes e duradouras", desc: "Técnicas modernas que eliminam pragas na raiz do problema." },
+  { icon: CheckCircle, title: "Soluções eficazes e duradouras", desc: "Técnicas modernas que controlam pragas na raiz do problema." },
   { icon: Building, title: "Residencial, comercial e industrial", desc: "Atendemos residências, condomínios, empresas e indústrias." },
 ];
 

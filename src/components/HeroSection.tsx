@@ -11,7 +11,7 @@ const HeroSection = () => {
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroBg} alt="Casa limpa e protegida" fetchPriority="high" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/60 via-foreground/40 to-foreground/10" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-6 py-24 w-full flex flex-col items-center text-center justify-center mt-8">

@@ -18,8 +18,8 @@ const faqs = [
     a: "Na maioria dos casos, não. Nossos produtos modernos permitem que você permaneça em casa. Em casos específicos, orientamos sobre o melhor procedimento.",
   },
   {
-    q: "Quanto tempo dura o efeito?",
-    a: "O efeito dos nossos tratamentos varia de 3 a 6 meses, dependendo do tipo de praga e das condições do ambiente. Oferecemos garantia em todos os serviços. Se o problema persistir dentro do prazo de garantia, voltamos sem custo adicional.",
+    q: "Qual o tempo de garantia do serviço?",
+    a: "Garantia de até 12 meses, conforme o tipo de praga e tratamento aplicado. Caso o problema persista dentro do período, retornamos sem custo adicional.",
   },
   {
     q: "Em quanto tempo vocês atendem?",

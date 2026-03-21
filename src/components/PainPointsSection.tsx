@@ -14,7 +14,7 @@ const pains = [
   {
     icon: Rat,
     title: "Ratos colocando sua saúde em risco?",
-    description: "Ratos contaminam alimentos e podem causar doenças graves como leptospirose.",
+    description: "Ratos contaminam alimentos e podem causar doenças graves como leptospirose, hantavirose e salmonelose.",
   },
   {
     icon: TermiteIcon,
