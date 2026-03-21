@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "Quanto tempo dura o efeito?",
-    a: "O efeito dos nossos tratamentos varia de 3 a 6 meses, dependendo do tipo de praga e das condições do ambiente. Oferecemos garantia em todos os serviços.",
+    a: "O efeito dos nossos tratamentos varia de 3 a 6 meses, dependendo do tipo de praga e das condições do ambiente. Oferecemos garantia em todos os serviços. Se o problema persistir dentro do prazo de garantia, voltamos sem custo adicional.",
   },
   {
     q: "Em quanto tempo vocês atendem?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Vocês atendem empresas e comércios?",
-    a: "Sim! Atendemos residências, restaurantes, escritórios, condomínios e todo tipo de estabelecimento comercial.",
+    a: "Sim! Atendemos residências, condomínios, empresas e indústrias.",
   },
 ];
 

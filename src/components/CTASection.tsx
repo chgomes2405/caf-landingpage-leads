@@ -143,7 +143,7 @@ const CTASection = ({ variant = "mid" }: CTASectionProps) => {
                 type="submit"
                 className="w-full h-12 mt-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg"
               >
-                Solicitar Orçamento Grátis
+                Solicitar Orçamento
               </button>
             </form>
           )}

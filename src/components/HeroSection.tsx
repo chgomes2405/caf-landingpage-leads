@@ -16,17 +16,17 @@ const HeroSection = () => {
 
       <div className="relative max-w-4xl mx-auto px-6 py-24 w-full flex flex-col items-center text-center justify-center mt-8">
         <motion.div {...fadeInUp} className="text-primary-foreground flex flex-col items-center">
-          <div className="flex items-center gap-3 mb-6">
-            <img src="/logo.png" alt="Logotipo CAF Saúde Ambiental" className="w-16 h-16 object-contain bg-white rounded-full p-1 shadow-xl" />
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary">
+          <div className="flex flex-col items-center justify-center gap-3 mb-8">
+            <img src="/logo.png" alt="Logotipo CAF Saúde Ambiental" className="w-20 h-20 object-contain bg-white rounded-full p-1 shadow-xl" />
+            <span className="inline-block text-xl md:text-2xl font-extrabold tracking-widest uppercase text-white drop-shadow-lg text-center">
               CAF Saúde Ambiental
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
-            Elimine pragas da sua casa com segurança e garantia
+            Ambientes protegidos contra pragas, com segurança e garantia
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Atendimento rápido, produtos aprovados pela Anvisa e proteção absoluta para sua família e seu negócio.
+            Atendimento rápido, produtos regulamentados pela Anvisa e proteção absoluta para sua família e seu negócio.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -36,7 +36,7 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg cursor-pointer"
             >
               <Phone className="w-5 h-5" />
-              Solicitar orçamento gratuito
+              Solicitar orçamento
             </a>
             <a
               href={WHATSAPP_URL}

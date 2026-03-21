@@ -7,7 +7,7 @@ const badges = [
   { icon: ShieldCheck, title: "Aprovado pela Anvisa", desc: "Todos os produtos são regulamentados e aprovados." },
   { icon: Baby, title: "Seguro para crianças e pets", desc: "Fórmulas modernas, sem cheiro e sem riscos." },
   { icon: GraduationCap, title: "Profissionais treinados", desc: "Equipe certificada e em constante atualização." },
-  { icon: Award, title: "Garantia no serviço", desc: "Se o problema voltar, voltamos sem custo extra." },
+  { icon: Award, title: "Garantia no serviço", desc: "Se o problema persistir dentro do prazo de garantia, voltamos sem custo adicional." },
 ];
 
 const TrustSection = () => (
